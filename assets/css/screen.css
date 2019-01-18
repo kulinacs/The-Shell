@@ -407,6 +407,27 @@ button, input, select, textarea {
   line-height: 1.5em; }
 
 /* ==========================================================================
+   Navigation
+   ========================================================================== */
+nav {
+  text-align: center;
+  margin: -1.6em auto 2em auto;
+  max-width: 630px; }
+  nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: block; }
+    nav ul li {
+      display: inline-block;
+      margin: 0;
+      padding: 0 .5em;
+      text-align: center; }
+
+/* ==========================================================================
    5. Single Post - When you click on an individual post
    ========================================================================== */
 .post-template .post {

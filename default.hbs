@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     {{! Document Settings }}
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -19,18 +19,29 @@
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
 
-</head>
-<body class="{{body_class}}">
+  </head>
+  <body class="{{body_class}}">
 
-    {{! Everything else gets inserted here }}
+    <header id="site-head" {{#if @blog.cover_image}}style="background-image: url({{@blog.cover_image}})"{{/if}}>
+    <div class="vertical">
+      <div id="site-head-content" class="inner">
+        {{#if @blog.logo}}<a id="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
+        <h1 class="blog-title">{{@blog.title}}</h1>
+        <h2 class="blog-description">{{@blog.description}}</h2>
+      </div>
+    </div>
+    </header>
+
+    {{navigation}}
+
     {{{body}}}
 
     <footer class="site-footer">
-        <!-- <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a> -->
-        <div class="inner">
-             <section class="copyright">All content copyright <a href="/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} &bull; All rights reserved.</section>
-             <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org"><span class="icon-ghost-text">Ghost</span></a> in <a href="https://github.com/kulinacs/gsh">gsh</a> theme.</section>
-        </div>
+      <!-- <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a> -->
+      <div class="inner">
+        <section class="copyright">All content copyright <a href="/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} &bull; All rights reserved.</section>
+        <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org"><span class="icon-ghost-text">Ghost</span></a> in <a href="https://github.com/kulinacs/gsh">gsh</a> theme.</section>
+      </div>
     </footer>
 
     {{! Ghost outputs important scripts and data with this tag }}
@@ -39,5 +50,5 @@
     {{! Scripts }}
     <script type='text/javascript' src="{{asset 'highlighter/prettify.js'}}"></script>
     <script type='text/javascript' src="{{asset '/js/shell.js'}}"></script>
-</body>
+  </body>
 </html>
